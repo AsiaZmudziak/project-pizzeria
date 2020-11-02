@@ -63,7 +63,7 @@
       thisProduct.initAccordion();
 
       console.log('new Product:', thisProduct);
-       //console.log('new Product:', thisProduct);
+       
     }
 
     renderInMenu() {
@@ -144,8 +144,8 @@
       console.log('templates:', templates);
       thisApp.initData();
       thisApp.initMenu();
-    }
-    };
+    },
+  };
 
   app.init();
 }
