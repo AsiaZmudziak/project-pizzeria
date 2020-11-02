@@ -137,18 +137,15 @@
 
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
+      console.log('*App starting*');
       console.log('thisApp:', thisApp);
       console.log('classNames:', classNames);
       console.log('settings:', settings);
       console.log('templates:', templates);
-    },
-
       thisApp.initData();
-
       thisApp.initMenu();
     }
-  };
+    };
 
   app.init();
 }
