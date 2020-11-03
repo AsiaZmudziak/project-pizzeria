@@ -256,6 +256,14 @@
         thisWidget.setValue(thisWidget.value + 1);
       });
     }
+
+    
+    announce() {
+      const thisWidget = this;
+
+      const event = new event('updated');
+      thisWidget.element.dispatchEvent(event);
+    }
   }
 
   const app = {
