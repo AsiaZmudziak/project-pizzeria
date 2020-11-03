@@ -60,10 +60,8 @@
       thisProduct.data = data;
 
       thisProduct.renderInMenu();
+      thisProduct.getElements();
       thisProduct.initAccordion();
-
-      console.log('new Product:', thisProduct);
-       
     }
 
     renderInMenu() {
@@ -81,13 +79,23 @@
       /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
     }
+
+    getElements(){
+      const thisProduct = this;
+    
+      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
+      thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
+      thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
+      thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+    }
+    
     initAccordion() {
       const thisProduct = this;
-      console.log('thisProduct:', thisProduct);
+      
 
       /* find the clickable trigger (the element that should react to clicking) */
-      const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
-      console.log('clickedTrigger:', clickableTrigger);
+      const clickableTrigger = thisProduct.accordionTrigger;
 
       /* START: click event listener to trigger */
       clickableTrigger.addEventListener('click', function() {
@@ -98,7 +106,7 @@
 
         /* toggle active class on element of thisProduct */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
-        console.log('thisProduct:', thisProduct);
+        
 
         /* find all active products */
         const allActiveProducts = thisProduct.element.querySelectorAll(select.all.menuProductsActive);
@@ -122,7 +130,7 @@
   const app = {
     initMenu: function() {
       const thisApp = this;
-      //console.log('thisApp.data:', thisApp.data);
+      
 
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
