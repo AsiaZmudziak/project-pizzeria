@@ -198,8 +198,8 @@
       }
       /* END LOOP: for each paramId in thisProduct.data.params */
 
-       /* multiply price by amount */
-       price *= thisProduct.amountWidget.value;
+      /* multiply price by amount */
+      price *= thisProduct.amountWidget.value;
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = price;
@@ -235,6 +235,7 @@
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+      thisWidget.value = settings.amountWidget.defaultValue;
     }
 
     setValue(value) {
@@ -244,8 +245,11 @@
 
       /* TODO: Add validation */
 
-      thisWidget.value = newValue;
-      thisWidget.announce();
+      if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+        thisWidget.value = newValue;
+        thisWidget.announce();
+      }
+      
       thisWidget.input.value = thisWidget.value;
     }
 
