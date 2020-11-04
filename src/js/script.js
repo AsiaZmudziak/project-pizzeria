@@ -249,7 +249,7 @@
         thisWidget.value = newValue;
         thisWidget.announce();
       }
-      
+
       thisWidget.input.value = thisWidget.value;
     }
 
@@ -273,7 +273,7 @@
     announce() {
       const thisWidget = this;
 
-      const event = new event('updated');
+      const event = new Event('updated');
       thisWidget.element.dispatchEvent(event);
     }
   }
