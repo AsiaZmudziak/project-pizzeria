@@ -375,16 +375,16 @@
 
 
     add(menuProduct) {
-      console.log(this)
       const thisCart = this;
+      //console.log('adding product', menuProduct);
       
-      / generate HTML based on template /
+      /* generate HTML based on template */
       const generatedHTML = templates.cartProduct(menuProduct);
       
-      / create DOM using utils.createElementFromHTML /
+      /* create DOM using utils.createElementFromHTML */
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       
-      / add DOM to thisCart.dom.productList /
+      /* add DOM to thisCart.dom.productList */
       thisCart.dom.productList.appendChild(generatedDOM);
       
       //console.log('adding product', menuProduct);
