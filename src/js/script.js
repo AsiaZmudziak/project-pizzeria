@@ -373,6 +373,8 @@
       
       //console.log('adding product', menuProduct);
       
+      thisCart.products.push(menuProduct);
+      console.log('thisCart.products', thisCart.products);
     }
   }
 
