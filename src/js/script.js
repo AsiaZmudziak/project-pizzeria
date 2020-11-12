@@ -348,7 +348,7 @@
 
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
 
-      thisCart.dom.productList - thisCart.dom.wrapper.querySelector(select.cart.productList);
+      thisCart.dom.productList = document.querySelector(select.cart.productList);
     }
 
     initActions() {
@@ -359,20 +359,20 @@
       });
     }
     add(menuProduct) {
-      //const thisCart = this;
-
-      console.log('adding product', menuProduct);
-      /* generate HTML based on template */
+      console.log(this)
+      const thisCart = this;
+      
+      / generate HTML based on template /
       const generatedHTML = templates.cartProduct(menuProduct);
-
-      /*create element using utilis.createElementFromHTML */
+      
+      / create DOM using utils.createElementFromHTML /
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-
-      /* find menu container */
-      const cartContainer = document.querySelector(select.containerOf.cart);
-
-      /* add element to menu */
-      cartContainer.appendChild(generatedDOM);
+      
+      / add DOM to thisCart.dom.productList /
+      thisCart.dom.productList.appendChild(generatedDOM);
+      
+      //console.log('adding product', menuProduct);
+      
     }
   }
 
