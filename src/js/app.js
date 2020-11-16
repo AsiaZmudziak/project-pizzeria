@@ -1,4 +1,4 @@
-import {settings, select} from './setting.js';
+import {settings, select} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 
@@ -44,7 +44,7 @@ import Cart from './components/Cart.js';
 
       thisApp.productList = document.querySelector(select.containerOf.menu);
 
-      thisApp.productList.addEventListner ('add-to-cart', function(event){
+      thisApp.productList.addEventListener ('add-to-cart', function(event){
         app.cart.add(event.detail.product);
       });
     },
