@@ -76,7 +76,7 @@ export const classNames = {
     },
     cart: {
       wrapperActive: 'active',
-    }
+    },
     booking: {
       loading: 'loading',
       tableBooked: 'booked',
@@ -109,7 +109,7 @@ export const settings = {
     db: {
       url: '//localhost:3131',
       product: 'product',
-      order: 'order'
+      order: 'order',
       booking: 'booking',
       event: 'event',
       dateStartParamKey: 'date_gte',
