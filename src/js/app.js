@@ -102,6 +102,13 @@ import Cart from './components/Cart.js';
       });
     },
 
+    initBooking: function() {
+      const thisApp = this;
+  
+      const bookingElem = document.querySelector(select.containerOf.booking);
+      thisApp.cart = new Booking(bookingElem);
+    },
+  
     init: function(){
       const thisApp = this;
 
@@ -110,7 +117,9 @@ import Cart from './components/Cart.js';
       thisApp.initData();
       
       thisApp.initCart();
-    },
+
+      thisApp.initBooking();
+    }
   };
 
   app.init();
