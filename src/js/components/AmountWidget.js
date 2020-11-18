@@ -7,7 +7,7 @@ class AmountWidget extends BaseWidget {
 
       const thisWidget = this;
 
-      thisWidget.getElements(element);
+      thisWidget.getElements();
 
       thisWidget.initActions();
 
@@ -19,8 +19,10 @@ class AmountWidget extends BaseWidget {
       const thisWidget = this;
 
       thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.amount.input);
-      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);	    thisWidget.dom.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
-      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
+      thisWidget.input = thisWidget.dom.wrapper.querySelector(select.widgets.amount.input);
+      thisWidget.dom.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
     }
 
     isValid(value) {
