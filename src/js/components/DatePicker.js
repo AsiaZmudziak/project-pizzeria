@@ -36,8 +36,8 @@ initPlugin() {
     });
 }
 
-parseValue(newValue){
-    return newValue;
+parseValue(value){
+    return value;
   }
 
   isValid(){

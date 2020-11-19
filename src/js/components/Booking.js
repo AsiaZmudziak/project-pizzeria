@@ -39,6 +39,9 @@ export class Booking {
     /* save from wrraper match to select.widgets.datePicker.wrapper in thisBooking.dom.datePicker */
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     //console.log(thisBooking.dom.datePicker);
+
+    /* wrapper match select.widgets.hour Picker.wrapper in this Booking.dom.hourPicker */
+    thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
   }
   initWidgets(){
     const thisBooking = this;
