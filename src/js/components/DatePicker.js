@@ -1,3 +1,7 @@
+import {BaseWidget} from './BaseWidget.js';
+import {utils} from '../utils.js';
+import {select, settings} from '../settings.js';
+
 class DatePicker extends BaseWidget {
     super(wrapper, utils.dateToStr(new Date()));
     const thisWidget = this;
@@ -16,6 +20,20 @@ initPlugin() {
     /* is to create thisWidget.maxDate date after thisWidget.minDate by the amount in settings.datePicker.maxDaysInFuture */
     thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
 
+    flatpickr(thisWidget.dom.input, {
+        defaultDate: thisWidget.minDate,
+        minDate: thisWidget.minDate,
+        maxDate: thisWidget.maxDate,
+        locale: {
+          firstDayOfWeek: 1 // start week on Monday
+        },
+        disable: [
+          function(date) {
+            // return true to disable
+            return date.getDay() === 1;
+          }
+        ]
+    });
 }
 
 parseValue(newValue){
@@ -26,6 +44,7 @@ parseValue(newValue){
     event.preventDefault();
     return true;
   }
-  
+
   renderValue(){}
 }
+export default DatePicker;
