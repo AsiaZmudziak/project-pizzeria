@@ -45,7 +45,7 @@ export class Booking {
         //console.log(bookings);
         //console.log(eventsCurrent);
         //console.log(eventsRepeat);
-        thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
+        thisBooking.parseData(bookings, eventsCurrent, eventsRepeat); 
       });
   }
 
@@ -75,7 +75,7 @@ export class Booking {
 
     // console.log('thisBooking.booked', thisBooking.booked);
 
-    thisBooking.updateDOM();
+    thisBooking.updateDOM(); 
   }
 
   makeBooked(date, hour, duration, table) {
@@ -104,12 +104,13 @@ export class Booking {
 
     let allAvailable = false;
 
-    if (typeof thisBooking.booked[thisBooking.date] == 'undefined' || typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined') {
+    if (typeof thisBooking.booked[thisBooking.date] == 'undefined' 
+    || typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined') {
       allAvailable = true;
     }
 
     for (let table of thisBooking.dom.tables) {
-      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
+      let tableId = table.getAttribute(settings.booking.tableIdAttribute); 
       if (!isNaN(tableId)) {
         tableId = parseInt(tableId);
       }

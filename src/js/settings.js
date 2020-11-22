@@ -105,7 +105,9 @@ export const settings = {
     cart: {
       defaultDeliveryFee: 20,
     },
-
+    booking: {
+      tableIdAttribute: 'data-table'
+    },
     db: {
       url: '//localhost:3131',
       product: 'product',
