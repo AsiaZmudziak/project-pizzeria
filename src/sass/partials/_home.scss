@@ -1,0 +1,183 @@
+.main-container {
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 40px 20px;
+    background: #fff;
+  }
+  
+  .flex-row { 
+    display: flex;
+  }
+  
+  .flex-padding-5 {
+    padding: 5px;
+  }
+  
+  .flex-col-1 {
+    flex-grow: 1;
+    width: 0;
+    margin: 2px;
+  
+    img {
+      width: 100%;
+      height: 180px;
+    }
+  }
+  
+  .image-link {
+    position: relative;
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    overflow: hidden;
+    transition: .5s;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+  
+    span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -20px;
+      line-height: 1em;
+      opacity: 0;
+      transition: .5s;
+      font-size: 15px;
+      font-weight: normal;
+  
+    }
+  }
+  
+  .background-picture-1 {
+    background-image: url('/images/assets/pizza-1.jpg');
+  }
+  
+  .background-picture-2 {
+    background-image: url('/images/assets/pizza-2.jpg');
+  }
+  
+  .image-link:hover {
+    line-height: 2.2em;
+    color: white;
+  }
+  
+  .image-link:hover span {
+    bottom: 30px;
+    opacity: 1;
+  }
+  
+  .open {
+    margin-top: 10px;
+    background: #FA8072;
+    height: 100px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding-top: 15px;
+  
+    h3 {
+      letter-spacing: 1px;
+      font-size: 20px;
+      font-weight: bold;    
+    }
+  }
+
+  /* carousel */
+
+  .carousel-row {
+    width: 100%;
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+  
+  .carousel-item {
+    height: 200px;
+  
+    .carousel-image {
+      height: 100%;
+      width: 33%;
+      position: absolute;
+    }
+  
+    .carousel-description {
+      width: 66%;
+      margin-left: 33%;
+      padding-left: 15px;
+      position: relative;
+  
+      h4 {
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: black;
+        text-transform: uppercase;
+      }
+  
+      p {
+        color: black;
+      }
+  
+      .author {
+        font-style: italic;
+      }
+    }
+  }
+
+  /* gallery */
+
+  .image {
+    width: 100%;
+    height: 193px;
+    object-fit: cover;
+  
+    .icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      opacity: 0;
+  
+  
+      .heart {
+        font-size: 30px;
+        color: white;
+      }
+  
+      .share {
+        font-size: 30px;
+        color: white;
+      }
+      .heart:hover {
+          color: #FA8072;
+        }
+      .share:hover {
+          color: #FA8072;
+        } 
+    }
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  
+    .icon {
+      opacity: 1;
+    }
+  }
+  
+  /* footer */
+
+ footer {
+  margin-bottom: 48px;
+  a {
+    color: $color-main;
+    text-decoration: underline;
+  }
+}
+  
+  
+ 

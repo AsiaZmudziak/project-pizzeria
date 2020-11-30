@@ -36,7 +36,7 @@ export class Booking {
 
     thisBooking.datePicker.dom.input.addEventListener('input', function(){
       if (bookedTable.length > 0) {
-        tables[bookedTable-1].classList.remove(booked);
+        tables[bookedTable-1].classList.remove('booked');
       }
     });
     thisBooking.dom.bookButton.addEventListener('submit', function(){
