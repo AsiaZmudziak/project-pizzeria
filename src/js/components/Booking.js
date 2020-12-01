@@ -30,13 +30,13 @@ export class Booking {
     /* remove picked table while date or hour change */
     thisBooking.hourPicker.dom.input.addEventListener('input', function(){
       if (bookedTable.length > 0) {
-        tables[bookedTable-1].classList.remove('booked');
+        tables[bookedTable-0].classList.remove('booked');
       }
     });
 
     thisBooking.datePicker.dom.input.addEventListener('input', function(){
       if (bookedTable.length > 0) {
-        tables[bookedTable-1].classList.remove('booked');
+        tables[bookedTable-0].classList.remove('booked');
       }
     });
     thisBooking.dom.bookButton.addEventListener('submit', function(){
@@ -50,10 +50,10 @@ export class Booking {
     const url = settings.db.url + '/' + settings.db.booking;
 
     const payload = {
-      date: thisBooking.datePicker.correctValue,
-      hour: thisBooking.hourPicker.correctValue,
-      duration: thisBooking.hoursAmount.correctValue,
-      ppl: thisBooking.peopleAmount.correctValue,
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
       table: thisBooking.parseInt(thisBooking.table),
       repeat: false,
       id: '',
@@ -221,6 +221,8 @@ export class Booking {
 
     /* save the wrapper element and match to select.booking.tables in the thisBooking.dom.tables */
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
+
+    thisBooking.dom.bookButton = thisBooking.dom.wrapper.querySelector(select.booking.form);
   }
 
   initWidgets(){
