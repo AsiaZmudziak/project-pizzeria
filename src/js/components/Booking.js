@@ -171,13 +171,68 @@ export class Booking {
       allAvailable = true;
     }
 
+     /* add code - color slider */
+     const startHour = 12;
+     const endHour = 24;
+     const midnight = 0;
+     const step = .5;
+     let column  = 100/(((endHour - startHour)/step)+1);
+     let procent = column;
+ 
+     let slider = document.getElementsByClassName('rangeSlider')[0];
+ 
+     let gradient_colors = '';
+ 
+     for (let i = startHour; i <= endHour; i = i+step) {
+       let hour = i;
+       if (hour == endHour) {
+         hour = midnight;
+       }
+ 
+       let tables = 0;
+       if(
+         typeof thisBooking.booked[thisBooking.date] == 'undefined'
+             ||
+             typeof thisBooking.booked[thisBooking.date][hour] == 'undefined'
+       ){
+         tables = 0;
+       } else {
+         tables = thisBooking.booked[thisBooking.date][hour].length;
+       }
+ 
+ 
+       if(tables == 0) {
+         gradient_colors = gradient_colors + ', #78e08f ' + procent + '%';
+       } else if(tables == 1) {
+         gradient_colors = gradient_colors + ', yellow ' + procent + '%';
+       } else if (tables == 2) {
+         gradient_colors = gradient_colors + ', orange ' + procent + '%';
+       } else {
+         gradient_colors = gradient_colors + ', red ' + procent + '%';
+       }
+ 
+       console.log('gradient_colors', gradient_colors);
+ 
+       console.log('procent', procent);
+ 
+       procent = procent + column;
+ 
+     }
+     /* console.clear(); */
+     /* console.log('gradient-color', gradient_colors); */
+ 
+     let gradient = 'linear-gradient(to right' + gradient_colors + ')';
+     slider.style.backgroundImage = gradient;
+ 
+     /* end - color slider */
+
     for (let table of thisBooking.dom.tables) {
       let tableId = table.getAttribute(settings.booking.tableIdAttribute); 
       if (!isNaN(tableId)) {
         tableId = parseInt(tableId);
       }
 
-      if (!allAvailable && thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1) {
+      if (!allAvailable && thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)) {
         table.classList.add(classNames.booking.tableBooked);
       } else {
         table.classList.remove(classNames.booking.tableBooked);
